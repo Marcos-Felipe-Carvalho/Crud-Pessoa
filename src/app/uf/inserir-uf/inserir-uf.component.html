@@ -1,0 +1,29 @@
+<h1>Nova Cidade</h1>
+<div class="well">
+    <form #formUf="ngForm">
+        <div class="form-group">
+            <label for="nome">Nome do estado:</label>
+            <input [(ngModel)]="uf.nome" #nome="ngModel" type="text" class="form-control" id="nome" name="nome" minlength="2" required>
+            <div *ngIf="nome.errors && (nome.dirty || nome.touched)" class="alert alert-danger">
+                <div [hidden]="!nome.errors['required']"> Digite o nome da uf. </div>
+                <div [hidden]="!nome.errors['minlength']"> O nome da uf deve conter ao menos 2 caracteres. </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="sigla">Sigla do estado:</label>
+            <input [(ngModel)]="uf.sigla" #sigla="ngModel" type="text" class="form-control" id="sigla" name="sigla" maxlength="2" required>
+            <div *ngIf="sigla.errors && (sigla.dirty || sigla.touched)" class="alert alert-danger">
+                <div [hidden]="!sigla.errors['required']"> Digite a sigla da uf. </div>
+                <div [hidden]="!sigla.errors['minlength']"> A sigla da uf deve conter no máximo 2 caracteres. </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button (click)="inserir()" [disabled]="!formUf.form.valid" type="button" class="btn btn-primary">
+                <i class="fa fa-save" aria-hidden="true"></i> Salvar
+            </button>
+            <a class="btn btn-secondary" [routerLink]="['../../ufs  /listar']">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+            </a>
+        </div>
+    </form>
+</div>
