@@ -9,6 +9,8 @@ import { InserirPessoaComponent } from './inserir-pessoa/inserir-pessoa.componen
 import { NovaPessoaComponent } from './nova-pessoa/nova-pessoa.component';
 import { EditarPessoaComponent } from './editar-pessoa/editar-pessoa.component';
 import { NumericoDirective } from '../shared/directives/numerico.directive';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { CaixaAltaPipe } from '../shared/pipes/caixa-alta.pipe';
 
 @NgModule({
   declarations: [
@@ -16,15 +18,19 @@ import { NumericoDirective } from '../shared/directives/numerico.directive';
     InserirPessoaComponent,
     NovaPessoaComponent,
     EditarPessoaComponent,
-    NumericoDirective
+    NumericoDirective,
+    CaixaAltaPipe
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
   providers:[
-    PessoaService
+    PessoaService,
+    provideNgxMask()
   ]
 })
 export class PessoaModule { }

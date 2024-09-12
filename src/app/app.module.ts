@@ -8,6 +8,7 @@ import { PessoaModule } from './pessoa';
 import { EnderecoModule } from './endereco/endereco.module';
 import { CidadeModule } from './cidade/cidade.module';
 import { UfModule } from './uf/uf.module';
+import { CaixaAltaPipe } from './shared/pipes/caixa-alta.pipe';
 
 @NgModule({
   declarations: [
